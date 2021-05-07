@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Border Radius Previewer App</title>
+  </head>
+  <body class="application">
+    <main class="container">
+      <h1 class="title">Border Radius Previewer</h1>
+      <article class="generator">
+        <div class="generator__shape"></div>
+        <div
+          class="generator__edge generator__edge--top-left active"
+          data-edge="topLeft"
+        ></div>
+        <div
+          class="generator__edge generator__edge--top-right"
+          data-edge="topRight"
+        ></div>
+        <div
+          class="generator__edge generator__edge--bottom-left"
+          data-edge="bottomLeft"
+        ></div>
+        <div
+          class="generator__edge generator__edge--bottom-right"
+          data-edge="bottomRight"
+        ></div>
+        <section class="generator__controller">
+          <i
+            class="generator__button generator__button--up fas fa-angle-up"
+          ></i>
+          <i
+            class="generator__button generator__button--down fas fa-angle-down"
+          ></i>
+          <i
+            class="generator__button generator__button--left fas fa-angle-left"
+          ></i>
+          <i
+            class="generator__button generator__button--right fas fa-angle-right"
+          ></i>
+        </section>
+      </article>
+      <!-- panel -->
+      <section class="panel">
+        <button class="panel__mode">SIMPLE</button>
+        <span class="panel__code">0% 0% 0% 0% / 0% 0% 0% 0%</span>
+        <button class="panel__copy">COPY</button>
+      </section>
+    </main>
+    <script src="./scripts.js"></script>
+  </body>
+</html>
+
+<!-- mode, copy -->
