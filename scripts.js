@@ -12,7 +12,10 @@ const state = {
   },
 };
 
-const adjustShapeSize = (dimension, value) => {
+const adjustBorderRadius = (dimension, value) => {
+  if (state.shape[state.edge][dimension] >= 100 && value === 1) return;
+  if (state.shape[state.edge][dimension] <= 0 && value === -1) return;
+
   if (state.mode === "simple") {
     state.shape[state.edge].x += value;
     state.shape[state.edge].y += value;
@@ -24,7 +27,7 @@ const adjustShapeSize = (dimension, value) => {
 const changeShapeEdge = (edge) => (state.edge = edge);
 const changeApplicationMode = (mode) => (state.mode = mode);
 
-const resetShapeSize = () => {
+const resetBorderRadius = () => {
   state.shape = {
     topLeft: { x: 0, y: 0 },
     topRight: { x: 0, y: 0 },
@@ -88,38 +91,38 @@ const copyCodeToClipboard = () => {
 //--------------------
 
 nodes.buttonUp.addEventListener("click", () => {
-  adjustShapeSize("x", 1);
+  adjustBorderRadius("x", 1);
   activateControlButton("buttonUp");
   generateShapePreview(state.shape);
 });
 
 nodes.buttonDown.addEventListener("click", () => {
-  adjustShapeSize("x", -1);
+  adjustBorderRadius("x", -1);
   activateControlButton("buttonDown");
   generateShapePreview(state.shape);
 });
 
 nodes.buttonLeft.addEventListener("click", () => {
-  adjustShapeSize("y", -1);
+  adjustBorderRadius("y", -1);
   activateControlButton("buttonLeft");
   generateShapePreview(state.shape);
 });
 
 nodes.buttonRight.addEventListener("click", () => {
-  adjustShapeSize("y", 1);
+  adjustBorderRadius("y", 1);
   activateControlButton("buttonRight");
   generateShapePreview(state.shape);
 });
 
 window.addEventListener("keydown", (e) => {
   if (e.key === "ArrowUp") {
-    adjustShapeSize("x", 1);
+    adjustBorderRadius("x", 1);
   } else if (e.key === "ArrowDown") {
-    adjustShapeSize("x", -1);
+    adjustBorderRadius("x", -1);
   } else if (e.key === "ArrowLeft") {
-    adjustShapeSize("y", -1);
+    adjustBorderRadius("y", -1);
   } else if (e.key === "ArrowRight") {
-    adjustShapeSize("y", 1);
+    adjustBorderRadius("y", 1);
   }
 
   activateControlButton(e.key.replace("Arrow", "button"));
@@ -136,7 +139,7 @@ nodes.edges.forEach((edge) =>
 nodes.applicationMode.addEventListener("click", () => {
   changeApplicationModeName();
   changeApplicationMode(nodes.applicationMode.innerText.toLowerCase());
-  resetShapeSize();
+  resetBorderRadius();
   generateShapePreview(state.shape);
 });
 
