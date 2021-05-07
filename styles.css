@@ -230,3 +230,27 @@ html {
   background: #fbe8d3;
   color: #f85f73;
 }
+
+@media screen and (max-width: 50em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  html {
+    font-size: 40%;
+  }
+}
+
+@media screen and (max-width: 32em) {
+  html {
+    font-size: 30%;
+  }
+}
+
+@media screen and (max-width: 24em) {
+  html {
+    font-size: 25%;
+  }
+}
