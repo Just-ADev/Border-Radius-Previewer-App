@@ -36,6 +36,19 @@ const resetBorderRadius = () => {
   };
 };
 
+const drawRandomNumber = () => Math.floor(Math.random() * 101);
+
+const drawRandomBorderRadius = () => {
+  state.shape.topLeft.x = drawRandomNumber();
+  state.shape.topLeft.y = drawRandomNumber();
+  state.shape.topRight.x = drawRandomNumber();
+  state.shape.topRight.y = drawRandomNumber();
+  state.shape.bottomRight.x = drawRandomNumber();
+  state.shape.bottomRight.y = drawRandomNumber();
+  state.shape.bottomLeft.x = drawRandomNumber();
+  state.shape.bottomLeft.y = drawRandomNumber();
+};
+
 //--------------------
 // VIEW
 //--------------------
@@ -45,6 +58,7 @@ const nodes = {
   controlButtons: document.querySelectorAll(".generator__button"),
   buttonUp: document.querySelector(".generator__button--up"),
   buttonDown: document.querySelector(".generator__button--down"),
+  buttonRandom: document.querySelector(".generator__button--random"),
   buttonLeft: document.querySelector(".generator__button--left"),
   buttonRight: document.querySelector(".generator__button--right"),
   edges: document.querySelectorAll(".generator__edge"),
@@ -99,6 +113,11 @@ nodes.buttonUp.addEventListener("click", () => {
 nodes.buttonDown.addEventListener("click", () => {
   adjustBorderRadius("x", -1);
   activateControlButton("buttonDown");
+  generateShapePreview(state.shape);
+});
+
+nodes.buttonRandom.addEventListener("click", () => {
+  drawRandomBorderRadius();
   generateShapePreview(state.shape);
 });
 

@@ -131,6 +131,7 @@ html {
   display: grid;
   grid-template-columns: repeat(3, 6rem);
   grid-template-rows: repeat(3, 6rem);
+  gap: 1rem;
 }
 
 .generator__button {
@@ -165,6 +166,12 @@ html {
 .generator__button--down {
   grid-column: 2/3;
   grid-row: 3/4;
+}
+
+.generator__button--random {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  font-size: 4rem;
 }
 
 .generator__button--left {
